@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicant_social: MyString
+  client_id: 1
+  user.id: MyString
+  renewal: 2015-04-28
+
+two:
+  applicant_social: MyString
+  client_id: 1
+  user.id: MyString
+  renewal: 2015-04-28

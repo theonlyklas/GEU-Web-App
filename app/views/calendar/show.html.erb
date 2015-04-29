@@ -1,0 +1,85 @@
+<!-- Nav -->
+<nav id="nav">
+  <p class="navbar-text pull-right">
+  <% if user_signed_in? %>
+    <strong><%= current_user.email %></strong>.
+    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  <% end %>
+<ul>
+  <li> <%= link_to "Home", root_path %></li>
+  <li class="current">
+      <a href="">Case Management</a>
+    <ul>
+      <li><%= link_to "New Case", new_investigation_path%></li>
+      <li><a href="#">Open Cases</a></li>
+      <li>
+        <a href="">Search Records</a>
+        <ul>
+          <li><%= link_to "Cases", investigations_path %> </li>
+          <li ><%= link_to "Applicants", applicants_path %></li>
+          <li><%= link_to "Clients", clients_path%></li>
+          <li><a href="#">All Detectives</a></li>
+        </ul>
+      </li>
+      <li><%= link_to "Calendar", calendar_show_path %></li>
+    </ul>
+  </li>
+  <li><%= link_to "Client", clients_new_path %></li>
+  <li><%= link_to "Applicant", new_applicant_path%></li>
+  <li><%= link_to "About Us", about_us_about_path %></li>
+  <li><a href="#footer">Support</a></li>       
+</ul>
+</nav>
+</div>
+		<!-- Main -->
+			<section class="wrapper style1">
+				<div class="container">
+					<div class="row 200%">
+						<div class="8u 12u(narrower)">
+							<div id="content">
+
+								<!-- Content -->
+
+									<article>
+										<header>
+											<h2>Assignments Manager</h2>
+											<p>You can use this page to efficiently manage the Detectives' case load.</p>
+										</header>
+									<div class= "calendar">	
+									<center>	
+										<%= month_calendar do |date| %>
+										  <%= date.day %>
+										<% end %>
+									</center>
+									</div>
+									</article>
+
+							</div>
+						</div>
+						<div class="4u 12u(narrower)">
+							<div id="sidebar">
+
+								<!-- Sidebar -->
+									<section>
+										<span class="image featured"><img src="/assets/banner.jpg" alt="" /></span>
+										<h3>Make an Assignment</h3>
+										<form action="">
+											Started On: <input type = "date" date=started>
+											Ended On: <input type = "date" date="ended">
+											Detective: <br><input style = "width: 100%;"type = "string" name="last_name">
+											<br>
+											Applicant ID: <br><input style = "width: 100%;" type = "integer" id="applicant.id">
+											<br><br>
+											<input type="submit" value="Submit" onclick="return alert('Detective, you will need the administrator rights to make assignments. This function is meant for the Sergeant.')"/>
+										</form>
+											<br>
+									</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
